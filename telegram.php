@@ -6,7 +6,7 @@
  in /cacti/lib/functions.php find admin_email function and after send_mail line (about line 4551) insert send_telegram($message);
 
  in plugin/monitor/poller.php find process_reboot_email function after process_send_email line (about line 390) instert: send_telegram($status . ' ' . $toutput);
- and process_email funtions after process_send_email line (about line 568) instert: send_telegram($status . ' ' . $toutput); */
+ and process_email funtions after process_send_email line (about line 568) insert: send_telegram($status . ' ' . $toutput); */
 
 
 send_telegram("hi world");
