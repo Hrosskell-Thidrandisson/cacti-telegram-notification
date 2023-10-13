@@ -5,19 +5,20 @@ Telegram
 - get Token bot
 - get ID group
 
-Save as telegram.php to your site.
+Insert function send_telegram to /cacti/lib/functions.php and /cacti/plugin/monitor/poller.php
 
-Update $TG_apiToken, and $TG_chatid in telegram.php
+ in /cacti/lib/functions.php find admin_email function and after send_mail line (about line 4551) insert send_telegram($message);
 
-Write custom text message in variable $TG_text. 
+ in plugin/monitor/poller.php find process_reboot_email function after process_send_email line (about line 390) instert: send_telegram($status . ' ' . $toutput);
+ and process_email funtions after process_send_email line (about line 568) instert: send_telegram($status . ' ' . $toutput); */
 
-Test is http://yoursite/yourpath/telegram.php
 
-Find admin_email funtion in yourpath/cacti/lib/funtions.php (about 4551 line)
+send_telegram("hi world");
 
-Insert code after send_email.......; line
-
-	$TG_apiToken = "your telegram token";
-	$TG_chatid ="your chat id";
-	$TG_text=$message;
-	$response = file_get_contents("https://api.telegram.org/bot$TG_apiToken/sendMessage?chat_id=$TG_chatid&text=$TG_text");
+function send_telegram($tg_text){
+	
+	$TG_apiToken = "your apiToken"; /* your telegram apiToken*/
+	$TG_chatid ="your chatid"; /* your telegram chatid*/
+	$TG_message=$tg_text; 
+	$response = file_get_contents("https://api.telegram.org/bot$TG_apiToken/sendMessage?chat_id=$TG_chatid&text=$TG_message");
+}    
