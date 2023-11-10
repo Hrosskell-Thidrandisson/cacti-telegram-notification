@@ -13,8 +13,8 @@ send_telegram("hi world");
 
 function send_telegram($tg_text){
 	
-	$TG_apiToken = "6516941144:AAEbB3sJOiz3iTIEwzzkhIZzZMQphk6yVa0"; /* your telegram apiToken*/
-	$TG_chatid ="-4020774188"; /* your telegram chatid*/
+	$TG_apiToken = "651694sdfsadfsdfsdf"; /* your telegram apiToken*/
+	$TG_chatid ="-40237189273819273"; /* your telegram chatid*/
 	$TG_message=$tg_text; 
 	$response = file_get_contents("https://api.telegram.org/bot$TG_apiToken/sendMessage?chat_id=$TG_chatid&text=$TG_message");
 }    
